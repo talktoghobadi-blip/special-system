@@ -1,0 +1,8 @@
+{
+    "workbench.preferredHighContrastLightColorTheme": "Default Dark+",
+    "workbench.preferredLightColorTheme": "Visual Studio Dark",
+    "scm.alwaysShowRepositories": true,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
+    "workbench.preferredHighContrastColorTheme": "GitHub Dark High Contrast"
+}
