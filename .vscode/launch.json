@@ -1,7 +1,7 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // Helpful launch configurations for this minimal static site.
+    // - Use the Chrome config to open http://localhost:8080 (matches the common static-server port).
+    // - Use the Python HTTP Server config to run a simple local server (requires the Python extension).
     "version": "0.2.0",
     "configurations": [
         {
@@ -11,12 +11,72 @@
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}"
         },
-
         {
-            "type": "node",
-            "name": "Run Current File",
+            "name": "Launch in Chrome",
+            "type": "chrome",
             "request": "launch",
-            "program": "/workspaces/special-system/index.html"
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Run Python HTTP Server",
+            "type": "python",
+            "request": "launch",
+            "module": "http.server",
+            "args": [
+                "8080"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Run npm start",
+            "type": "pwa-node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "start"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Launch Node (inspect)",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "node",
+            "runtimeArgs": [
+                "--inspect=9229",
+                "${workspaceFolder}/server.js"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "Attach to Node (9229)",
+            "type": "node",
+            "request": "attach",
+            "address": "localhost",
+            "port": 9229,
+            "restart": false,
+            "localRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Containers: Python - General",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "general"
+            }
         }
     ]
 }
