@@ -1,0 +1,6 @@
+services:
+  specialsystem:
+    image: specialsystem
+    build:
+      context: .
+      dockerfile: ./Dockerfile
